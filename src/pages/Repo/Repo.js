@@ -38,7 +38,7 @@ const Repo = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container_repo">
       <div className="bread_crumb">
         <RiBookMarkLine className="repo_icon" />
 

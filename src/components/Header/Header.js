@@ -16,7 +16,7 @@ const Header = ( ) => {
     };
 
     return (
-        <div className="container">
+        <div className="container_header">
             <FaGithub className="github_logo" />
             <form className="search_form" onSubmit={handleSubmit}>
                 <input
@@ -25,7 +25,6 @@ const Header = ( ) => {
                     value={search}
                     onChange={(e) => setSearch(e.currentTarget.value)}
                 />
-                <button type="submit">Search</button>
             </form>
         </div>
     );

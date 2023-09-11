@@ -5,7 +5,7 @@
     flex-shrink: 0;
 }
 
-.container{
+.container_repocard{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -74,14 +74,8 @@
       }
 }
 
-.fork_icon{
-    @include icon-styles;
-}
-
-.repo_icon{
-    @include icon-styles;
-}
-
-.star_icon{
+.fork_icon,
+.repo_icon,
+.star_icon {
     @include icon-styles;
 }

@@ -15,7 +15,7 @@ const RepoCard = ({
     const languageClass = language ? language.toLowerCase() : "other";
 
     return (
-        <div className="container">
+        <div className="container_repocard">
             <div className="topside">
                 <header>
                     <RiBookMarkLine className="repo_icon" />
