@@ -21,7 +21,7 @@ const RepoCard = ({
                     <RiBookMarkLine className="repocard-repo-icon" />
                     <Link to={`/${username}/${reponame}`}>{reponame}</Link>
                 </header>
-                <p>{description}</p>
+                <p>{description ? description : "no description"}</p>
             </div>
             <div className="repocard-botside">
                 <ul>

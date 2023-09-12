@@ -22,7 +22,7 @@ const Profile = () => {
       try {
         const [userResponse, reposResponse] = await Promise.all([
           axios.get(`https://api.github.com/users/${username}`),
-          axios.get(`https://api.github.com/users/${username}/repos`),
+          axios.get(`https://api.github.com/users/${username}/repos?per_page=1000`),
         ]);
         if (userResponse.status === 404) {
           setUserData({ error: "User not found!" });
@@ -30,15 +30,12 @@ const Profile = () => {
         }
 
         const user = userResponse.data;
+        console.log(reposResponse.data);
         const repos = reposResponse.data;
-
-        // Shuffle the repositories and take the first 6
-        const shuffledRepos = repos.sort(() => 0.5 - Math.random());
-        const slicedRepos = shuffledRepos.slice(0, 6);
-
+      
         setUserData({
           user,
-          repos: slicedRepos,
+          repos: repos,
           error: null,
         });
       } catch (error) {
