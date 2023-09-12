@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ProfileData from "../../components/ProfileData/ProfileData";
 import RepoCard from "../../components/RepoCard/RepoCard";
+import RandomCalendar from "../../components/RandomCalendar/RandomCalendar";
 import { RiBookMarkLine } from "react-icons/ri";
 import "./Profile.scss";
 
@@ -119,8 +120,8 @@ const Profile = () => {
             </div>
           </div>
           <span className="calendar_heading">
-            Random Calendar (does not represent actual data)
           </span>
+          <RandomCalendar />
         </div>
       </div>
     </div>
