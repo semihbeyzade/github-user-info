@@ -1,6 +1,6 @@
-# GitHub Benutzerinformationen und Repositories Anwendun
+# GitHub Benutzerinformationen und Repositories Anwendung
 ## Einleitung
-Diese Anwendung wurde entwickelt, um Benutzerinformationen und Repositories von GitHub anzuzeigen. Sie wurde mit React erstellt und verwendet verschiedene Pakete wie axios, saas, react-icons und react-paginate, um die Funktionalität und das Styling zu verbessern. Die Anwendung ermöglicht es Benutzern, nach GitHub-Benutzern oder Repositories zu suchen und detaillierte Informationen anzuzeigen.
+Diese Anwendung wurde entwickelt, um Benutzerinformationen und Repositories von GitHub anzuzeigen. Sie wurde mit React erstellt und verwendet verschiedene Pakete wie **axios**, **saas**, **react-icons** und **react-paginate**, um die Funktionalität und das Styling zu verbessern. Die Anwendung ermöglicht es Benutzern, nach GitHub-Benutzern oder Repositories zu suchen und detaillierte Informationen anzuzeigen.
 
 ## Komponenten
 ### Header
@@ -16,56 +16,56 @@ Die RepoCard-Komponente zeigt Informationen zu einem GitHub-Repository an. Dazu 
 Die Footer-Komponente zeigt das GitHub-Logo am unteren Rand der Seite an.
 
 ### Profile
-Die _Profile_ -Komponente ist verantwortlich für die Anzeige von GitHub-Benutzerinformationen und deren Repositories.Sie können die Route-Parameter verwenden, um den Benutzernamen dynamisch festzulegen, oder einen Standardbenutzernamen (in diesem Fall "semihbeyzade") verwenden.
+Die **Profile** -Komponente ist verantwortlich für die Anzeige von GitHub-Benutzerinformationen und deren Repositories.Sie können die Route-Parameter verwenden, um den Benutzernamen dynamisch festzulegen, oder einen Standardbenutzernamen (in diesem Fall "semihbeyzade") verwenden.
 
 #### Zustand
 Die Profile-Komponente verwendet React-Hooks, um den Zustand der Benutzerdaten und Repositories zu verwalten:
 
-_userData_: Dieser Zustand enthält Informationen über den GitHub-Benutzer, einschließlich Name, Benutzername, Avatar, Anzahl der Follower, Anzahl der Personen, denen der Benutzer folgt, Firma, Standort, E-Mail und Blog-URL. Es kann auch eine Fehlermeldung enthalten, wenn ein Problem bei der Datenabfrage auftritt.
+**userData**: Dieser Zustand enthält Informationen über den GitHub-Benutzer, einschließlich Name, Benutzername, Avatar, Anzahl der Follower, Anzahl der Personen, denen der Benutzer folgt, Firma, Standort, E-Mail und Blog-URL. Es kann auch eine Fehlermeldung enthalten, wenn ein Problem bei der Datenabfrage auftritt.
 
-_currentPage_: Dieser Zustand wird verwendet, um die aktuelle Seite für die Repositories zu verfolgen, da sie paginiert sind.
+**currentPage**: Dieser Zustand wird verwendet, um die aktuelle Seite für die Repositories zu verfolgen, da sie paginiert sind.
 
 ### Repo
 Die Repo-Komponente zeigt detaillierte Informationen zu einem einzelnen GitHub-Repository an. Benutzer gelangen zu dieser Seite, wenn sie auf den Namen eines Repositories auf der Profilseite klicken. Die Informationen umfassen die Repository-Beschreibung, die Anzahl der Sterne, die Anzahl der Forks und einen Link zum Repository auf GitHub.
 
 ### Routing
-Die Anwendung verwendet die _react-router-dom_ -Bibliothek, um die Navigation zwischen verschiedenen Seiten zu ermöglichen. Es gibt drei Hauptseiten:
+Die Anwendung verwendet die **react-router-dom** -Bibliothek, um die Navigation zwischen verschiedenen Seiten zu ermöglichen. Es gibt drei Hauptseiten:
 
 Die Profilseite, auf der Benutzerinformationen und Repositories angezeigt werden.
 Die Repositoryseite, auf der detaillierte Informationen zu einem Repository angezeigt werden.
 Die Startseite (Standard), auf der die Profilseite für einen Standardbenutzer ("semihbeyzade") angezeigt wird.
 
 ### Styling
-Die Anwendung verwendet SCSS (Sass) für das Styling. Der _index.scss_ -Datei sind globale Stile definiert, die auf der gesamten Website angewendet werden. Die Farben und Stile wurden sorgfältig ausgewählt, um eine ansprechende Benutzeroberfläche zu erstellen.
+Die Anwendung verwendet SCSS (Sass) für das Styling. Der **index.scss** -Datei sind globale Stile definiert, die auf der gesamten Website angewendet werden. Die Farben und Stile wurden sorgfältig ausgewählt, um eine ansprechende Benutzeroberfläche zu erstellen.
 
 ### Datenabruf
 Die Anwendung verwendet Axios, um Daten von der GitHub-API abzurufen. Bevor Daten abgerufen werden, wird der eingegebene Benutzername oder Repository-Name formatiert und an die entsprechende API-Endpunkt-URL gesendet.
 
 #### fetchUserData Funktion
-Die _fetchUserData_ Funktion ist eine Funktion, die in einem _useEffect_ verwendet wird und darauf abzielt, die Daten eines GitHub-Benutzers abzurufen.
+Die **fetchUserData** Funktion ist eine Funktion, die in einem **useEffect** verwendet wird und darauf abzielt, die Daten eines GitHub-Benutzers abzurufen.
 
-1. _try-catch Block_: Zunächst wird ein try-catch-Block verwendet. Dieser Block wird verwendet, um Fehlerfälle abzufangen und mit ihnen umzugehen.
+1. **try-catch Block**: Zunächst wird ein try-catch-Block verwendet. Dieser Block wird verwendet, um Fehlerfälle abzufangen und mit ihnen umzugehen.
 
-2. _Datenabruf_: Mit axios.get werden zwei separate Anfragen an die GitHub-API gesendet. Die erste Anfrage ruft allgemeine Informationen über den angegebenen Benutzer ab, während die zweite Anfrage alle Repositories des Benutzers abruft.
+2. **Datenabruf**: Mit axios.get werden zwei separate Anfragen an die GitHub-API gesendet. Die erste Anfrage ruft allgemeine Informationen über den angegebenen Benutzer ab, während die zweite Anfrage alle Repositories des Benutzers abruft.
 
-3. _404 Statusüberprüfung_: Wenn der Status der ersten Anfrage (status) 404 ist, bedeutet dies, dass der Benutzer nicht gefunden wurde. In diesem Fall wird eine Fehlermeldung festgelegt, und diese Fehlermeldung wird dem Benutzer mithilfe von setUserData angezeigt.
+3. **404 Statusüberprüfung**: Wenn der Status der ersten Anfrage (status) 404 ist, bedeutet dies, dass der Benutzer nicht gefunden wurde. In diesem Fall wird eine Fehlermeldung festgelegt, und diese Fehlermeldung wird dem Benutzer mithilfe von setUserData angezeigt.
 
-4. _Daten festlegen_: Wenn kein Fehler auftritt, werden die Antworten beider Anfragen abgerufen, und aus diesen Antworten werden die Benutzerinformationen und Repositories separat extrahiert. Anschließend werden diese Informationen mithilfe von _setUserData_ als Benutzerdaten festgelegt, und der Fehlerstatus wird auf null zurückgesetzt (_error: null_).
+4. **Daten festlegen**: Wenn kein Fehler auftritt, werden die Antworten beider Anfragen abgerufen, und aus diesen Antworten werden die Benutzerinformationen und Repositories separat extrahiert. Anschließend werden diese Informationen mithilfe von **setUserData** als Benutzerdaten festgelegt, und der Fehlerstatus wird auf null zurückgesetzt (**error: null**).
 
-5. _Fehlerverwaltung_: Wenn ein Fehler auftritt, wird dieser mithilfe des _catch_-Blocks behandelt, und die Benutzerdaten werden mithilfe von _setUserData_ zurückgesetzt, während eine Fehlermeldung festgelegt wird.
+5. **Fehlerverwaltung**: Wenn ein Fehler auftritt, wird dieser mithilfe des **catch**-Blocks behandelt, und die Benutzerdaten werden mithilfe von _setUserData_ zurückgesetzt, während eine Fehlermeldung festgelegt wird.
 
 #### fetchRepoData Funktion
-Die _fetchRepoData_ Funktion ist eine Funktion, die in einem _useEffect_ verwendet wird und darauf abzielt, Daten eines GitHub-Repositorys abzurufen.
+Die **fetchRepoData** Funktion ist eine Funktion, die in einem **useEffect** verwendet wird und darauf abzielt, Daten eines GitHub-Repositorys abzurufen.
 
-1. _try-catch Block_: Zunächst wird ein _try-catch_-Block verwendet. Dieser Block wird verwendet, um Fehlerfälle abzufangen und mit ihnen umzugehen.
+1. **try-catch Block**: Zunächst wird ein **try-catch**-Block verwendet. Dieser Block wird verwendet, um Fehlerfälle abzufangen und mit ihnen umzugehen.
 
-2. _Datenabruf_: Mit _axios.get_ wird eine Anfrage an die GitHub-API gesendet, um die Daten des angegebenen Repositorys abzurufen.
+2. **Datenabruf**: Mit **axios.get** wird eine Anfrage an die GitHub-API gesendet, um die Daten des angegebenen Repositorys abzurufen.
 
-3. _Fehlerüberprüfung und Datenfestlegung_: Wenn kein Fehler auftritt, wird die Antwort abgerufen und mithilfe von _setRepoData_ als Repository-Daten festgelegt. Außerdem wird der Ladezustand mit _setLoading(false)_ zurückgesetzt.
+3. **Fehlerüberprüfung und Datenfestlegung**: Wenn kein Fehler auftritt, wird die Antwort abgerufen und mithilfe von **setRepoData** als Repository-Daten festgelegt. Außerdem wird der Ladezustand mit **setLoading(false)** zurückgesetzt.
 
-4. _Fehlerverwaltung_: Wenn ein Fehler auftritt, wird dieser mithilfe des _catch_-Blocks behandelt. Der Fehler wird in der Konsole protokolliert, die Repository-Daten werden zurückgesetzt, und der Ladezustand wird mit _setLoading(false)_ zurückgesetzt.
+4. _Fehlerverwaltung_: Wenn ein Fehler auftritt, wird dieser mithilfe des **catch**-Blocks behandelt. Der Fehler wird in der Konsole protokolliert, die Repository-Daten werden zurückgesetzt, und der Ladezustand wird mit **setLoading(false)** zurückgesetzt.
 
-Diese Schemata erläutern die Arbeitsweise der _fetchUserData_ und _fetchRepoData_ Funktionen sowie den Datenfluss. Diese Funktionen werden in Ihrer React-Anwendung verwendet, um GitHub-API-Daten abzurufen.
+Diese Schemata erläutern die Arbeitsweise der **fetchUserData** und **fetchRepoData** Funktionen sowie den Datenfluss. Diese Funktionen werden in Ihrer React-Anwendung verwendet, um GitHub-API-Daten abzurufen.
 
 ### Paginierung
 Die Repositories werden in einer paginierten Ansicht angezeigt. Die Anzahl der angezeigten Repositories pro Seite beträgt 8. Benutzer können zwischen den Seiten navigieren, um alle Repositories anzuzeigen.
