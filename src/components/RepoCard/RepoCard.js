@@ -15,26 +15,26 @@ const RepoCard = ({
     const languageClass = language ? language.toLowerCase() : "other";
 
     return (
-        <div className="container_repocard">
-            <div className="topside">
+        <div className="repocard-container">
+            <div className="repocard-topside">
                 <header>
-                    <RiBookMarkLine className="repo_icon" />
+                    <RiBookMarkLine className="repocard-repo-icon" />
                     <Link to={`/${username}/${reponame}`}>{reponame}</Link>
                 </header>
                 <p>{description}</p>
             </div>
-            <div className="botside">
+            <div className="repocard-botside">
                 <ul>
                     <li>
                         <div className={`language ${languageClass}`} />
                         <span>{language}</span>
                     </li>
                     <li>
-                        <RiStarLine className="star_icon" />
+                        <RiStarLine className="repocard-star-icon" />
                         <span>{stars}</span>
                     </li>
                     <li>
-                        <AiOutlineFork className="fork_icon" />
+                        <AiOutlineFork className="repocard-fork-icon" />
                         <span>{forks}</span>
                     </li>
                 </ul>

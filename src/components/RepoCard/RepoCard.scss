@@ -5,7 +5,7 @@
     flex-shrink: 0;
 }
 
-.container_repocard{
+.repocard-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,7 +14,7 @@
     border-radius: 6px;
 }
 
-.topside{
+.repocard-topside{
     > header {
         display: flex;
         align-items: center;
@@ -42,7 +42,7 @@
     }
 }
 
-.botside{
+.repocard-botside{
     > ul {
         display: flex;
         align-items: center;
@@ -74,8 +74,8 @@
       }
 }
 
-.fork_icon,
-.repo_icon,
-.star_icon {
+.repocard-fork-icon,
+.repocard-repo-icon,
+.repocard-star-icon {
     @include icon-styles;
 }

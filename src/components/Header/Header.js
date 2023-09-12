@@ -16,9 +16,9 @@ const Header = ( ) => {
     };
 
     return (
-        <div className="container_header">
-            <FaGithub className="github_logo" />
-            <form className="search_form" onSubmit={handleSubmit}>
+        <div className="header-container">
+            <FaGithub className="header-github-logo" />
+            <form className="header-search-form" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Enter Username or Repo ..."

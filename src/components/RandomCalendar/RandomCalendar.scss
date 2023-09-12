@@ -1,4 +1,4 @@
-.calendar_container{
+.random-calendar-container{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -8,7 +8,7 @@
     border: 1px solid var(--border);
     border-radius: 6px;
   
-    .wrapper {
+    .random-calendar-wrapper {
         .scale-0 {
             fill: var(--calendar-scale-0)
         }
@@ -28,7 +28,7 @@
         width: 893px;
     }
   
-    span {
+    .random-calendar-label {
         font-size: 11px;
         color: var(--link);
         margin-top: -25px;

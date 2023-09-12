@@ -38,38 +38,38 @@ const Repo = () => {
   }
 
   return (
-    <div className="container_repo">
-      <div className="bread_crumb">
-        <RiBookMarkLine className="repo_icon" />
+    <div className="repo-container">
+      <div className="repo-breadcrumb">
+        <RiBookMarkLine className="repo-icon" />
 
-        <Link className="username" to={`/${username}`}>
+        <Link className="repo-username-link" to={`/${username}`}>
           {username}
         </Link>
 
         <span>/</span>
 
-        <Link className="reponame" to={`/${username}/${reponame}`}>
+        <Link className="repo-reponame-link" to={`/${username}/${reponame}`}>
           {reponame}
         </Link>
       </div>
 
       <p>{repoData.description}</p>
 
-      <div className="stats">
+      <div className="repo-stats">
         <li>
-          <RiStarLine className="star_icon" />
+          <RiStarLine className="repo-star-icon" />
           <b>{repoData.stargazers_count}</b>
           <span>stars</span>
         </li>
         <li>
-          <AiOutlineFork className="fork_icon" />
+          <AiOutlineFork className="repo-fork-icon" />
           <b>{repoData.forks}</b>
           <span>forks</span>
         </li>
       </div>
 
-      <a className="link_button" href={repoData.html_url}>
-        <FaGithub className="github_icon" />
+      <a className="repo-link-button" href={repoData.html_url}>
+        <FaGithub className="repo-github-icon" />
         <span>View on GitHub</span>
       </a>
     </div>

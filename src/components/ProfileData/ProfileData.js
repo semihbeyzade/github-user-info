@@ -21,17 +21,17 @@ const ProfileData = ({
 }) => {
     return (
         <div>
-            <div className="user_info_container" >
-                <img className="user_img" src={avatarUrl} alt={username} />
+            <div className="profiledata-container" >
+                <img className="profiledata-user-img" src={avatarUrl} alt={username} />
                 <div>
                     <h1>{name}</h1>
                     <h2>{username}</h2>
                 </div>
             </div>
 
-            <ul className="user_follower_info">
+            <ul className="profiledata-user-follower-info">
                 <li>
-                    <RiGroupLine className="people_icon"/>
+                    <RiGroupLine className="profiledata-people-icon"/>
                     <b>{followers}</b>
                     <span>followers</span>
                     <span>·</span>
@@ -42,28 +42,28 @@ const ProfileData = ({
                 </li>
             </ul>
 
-            <ul className="user_info">
+            <ul className="profiledata-user-info-list">
                 {company && (
                     <li>
-                        <RiBuilding4Line className="company_icon" />
+                        <RiBuilding4Line className="profiledata-company-icon" />
                         <span>{company}</span>
                     </li>
                 )}
                 {location && (
                     <li>
-                        <RiMapPin2Line className="location_icon" />
+                        <RiMapPin2Line className="profiledata-location-icon" />
                         <span>{location}</span>
                     </li>
                 )}
                 {email && (
                     <li>
-                        <RiMailLine className="email_icon" />
+                        <RiMailLine className="profiledata-email-icon" />
                         <span>{email}</span>
                     </li>
                 )}
                 {blog && (
                     <li>
-                        <RiLinksLine className="blog_icon" />
+                        <RiLinksLine className="profiledata-blog-icon" />
                         <span>{blog}</span>
                     </li>
                 )}

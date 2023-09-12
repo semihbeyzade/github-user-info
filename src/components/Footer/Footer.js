@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className='footer-container'>
       <div className='footer-line'></div>
-      <FaGithub className='github-logo' />
+      <FaGithub className='footer-github-logo' />
     </div>
   );
 }

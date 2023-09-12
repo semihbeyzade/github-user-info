@@ -5,7 +5,7 @@
     flex-shrink: 0;
 }
 
-.user_info_container{
+.profiledata-container{
     display: flex;
     align-items: center;
 
@@ -35,7 +35,7 @@
     }
 }
 
-.user_img{
+.profiledata-user-img{
     width: 16%;
     border-radius: 50%;
 
@@ -45,7 +45,7 @@
     }
 }
 
-.user_follower_info {
+.profiledata-user-follower-info {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -66,7 +66,7 @@
     }
 }
 
-.user_info {
+.profiledata-user-info-list {
     li {
         display: flex;
         align-items: center;
@@ -85,10 +85,10 @@
     }
 }
 
-.people_icon,
-.company_icon,
-.location_icon,
-.email_icon,
-.blog_icon {
+.profiledata-people-icon,
+.profiledata-company-icon,
+.profiledata-location-icon,
+.profiledata-email-icon,
+.profiledata-blog-icon {
     @include icon-styles;
 }

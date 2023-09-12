@@ -1,10 +1,10 @@
-.container_header {
+.header-container {
     display: flex;
     align-items: center;
     background: var(--header);
     padding: 11px 16px;
 
-    .github_logo {
+    .header-github-logo {
         fill: var(--logo);
         width: 32px;
         height: 32px;
@@ -16,7 +16,7 @@
         }
     }
 
-    .search_form {
+    .header-search-form {
         display: flex;
         padding-left: 16px;
         width: 100%;

@@ -64,26 +64,26 @@ const Profile = () => {
   }
 
   // Tab Content
-  const TabContent = () => (
-    <div className="content">
-      <RiBookMarkLine className="repo_icon" />
-      <span className="label">Repositories</span>
-      <span className="number">{userData.user.public_repos}</span>
+  const ProfileTabContent = () => (
+    <div className="profile-content">
+      <RiBookMarkLine className="profile-repo-icon" />
+      <span className="profile-label">Repositories</span>
+      <span className="profile-number">{userData.user.public_repos}</span>
     </div>
   );
 
   return (
-    <div className="container_profile">
-      <div className="desktop tab">
-        <div className="wrapper">
-          <span className="offset" />
-          <TabContent />
+    <div className="profile-container">
+      <div className="profile-desktop profile-tab">
+        <div className="profile-wrapper">
+          <span className="profile-offset" />
+          <ProfileTabContent />
         </div>
 
-        <span className="line" />
+        <span className="profile-line" />
       </div>
-      <div className="main">
-        <div className="left_side">
+      <div className="profile-main">
+        <div className="profile-left-side">
           <ProfileData
             username={userData.user.login}
             name={userData.user.name}
@@ -96,12 +96,12 @@ const Profile = () => {
             blog={userData.user.blog}
           />
         </div>
-        <div className="right_side">
-          <div className="mobile tab">
-            <TabContent />
-            <span className="line"></span>
+        <div className="profile-right-side">
+          <div className="profile-mobile profile-tab">
+            <ProfileTabContent />
+            <span className="profile-line"></span>
           </div>
-          <div className="repos">
+          <div className="profile-repos">
             <h2>Random Repositories</h2>
 
             <div>
@@ -118,7 +118,7 @@ const Profile = () => {
               ))}
             </div>
           </div>
-          <span className="calendar_heading">
+          <span className="profile-calendar-heading">
           </span>
           <RandomCalendar />
         </div>

@@ -23,8 +23,8 @@ const RandomCalendar = () => {
   };
 
   return (
-    <div className="calendar_container">
-      <div className="wrapper">
+    <div className="random-calendar-container">
+      <div className="random-calendar-wrapper">
         <Heatmap
           startDate={startDate}
           endDate={endDate}
@@ -44,7 +44,7 @@ const RandomCalendar = () => {
         />
       </div>
 
-      <span>Random calendar (do not represent actual data)</span>
+      <span className="random-calendar-label">Random calendar (do not represent actual data)</span>
     </div>
   );
 };
