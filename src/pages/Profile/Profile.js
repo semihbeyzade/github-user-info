@@ -24,7 +24,6 @@ const Profile = () => {
           axios.get(`https://api.github.com/users/${username}`),
           axios.get(`https://api.github.com/users/${username}/repos`),
         ]);
-
         if (userResponse.status === 404) {
           setUserData({ error: "User not found!" });
           return;
