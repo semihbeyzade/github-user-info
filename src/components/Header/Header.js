@@ -6,7 +6,6 @@ import "./Header.scss";
 const Header = ( ) => {
     const [search, setSearch] = useState("");
     const navigate = useNavigate();
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const formattedSearchTerm = search.toLowerCase().trim();
@@ -14,7 +13,6 @@ const Header = ( ) => {
     
         setSearch("");
     };
-
     return (
         <div className="header-container">
             <FaGithub className="header-github-logo" />

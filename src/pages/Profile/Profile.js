@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import ReactPaginate from 'react-paginate';
 import ProfileData from "../../components/ProfileData/ProfileData";
 import RepoCard from "../../components/RepoCard/RepoCard";
 import RandomCalendar from "../../components/RandomCalendar/RandomCalendar";
@@ -8,16 +9,18 @@ import { RiBookMarkLine } from "react-icons/ri";
 import "./Profile.scss";
 
 const Profile = () => {
-  // Use the username from the route parameters
+  // Get the username from the route parameters or use a default value
   const { username = "semihbeyzade" } = useParams();
 
-  const [userData, setUserData] = useState({
-    user: null,
-    repos: null,
-    error: null,
-  });
+  // State to hold user data, repositories, and error
+  const [userData, setUserData] = useState({});
+
+  // State to manage the current page for pagination
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 8; // Number of repositories to display per page
 
   useEffect(() => {
+    // Fetch user data and repositories when the component mounts
     const fetchUserData = async () => {
       try {
         const [userResponse, reposResponse] = await Promise.all([
@@ -30,9 +33,8 @@ const Profile = () => {
         }
 
         const user = userResponse.data;
-        console.log(reposResponse.data);
         const repos = reposResponse.data;
-      
+
         setUserData({
           user,
           repos: repos,
@@ -50,17 +52,32 @@ const Profile = () => {
     fetchUserData();
   }, [username]);
 
-  // Handle the error state
+  // Render an error message if there's an error
   if (userData.error) {
     return <h1>{userData.error}</h1>;
   }
 
-  // Show a loading message until user data and repositories are loaded
+  // Render a loading message while data is being fetched
   if (!userData.user || !userData.repos) {
     return <h1>Loading...</h1>;
   }
 
-  // Tab Content
+  // Calculate the total number of pages for pagination
+  const pageCount = Math.ceil(userData.repos.length / itemsPerPage);
+
+  // Calculate the start and end indices of the current page
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  // Get data for the current page
+  const currentPageData = userData.repos.slice(startIndex, endIndex);
+
+  // Handle page change when a new page is selected
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
+  // Define the content for the "Repositories" tab
   const ProfileTabContent = () => (
     <div className="profile-content">
       <RiBookMarkLine className="profile-repo-icon" />
@@ -76,7 +93,6 @@ const Profile = () => {
           <span className="profile-offset" />
           <ProfileTabContent />
         </div>
-
         <span className="profile-line" />
       </div>
       <div className="profile-main">
@@ -99,10 +115,8 @@ const Profile = () => {
             <span className="profile-line"></span>
           </div>
           <div className="profile-repos">
-            <h2>Random Repositories</h2>
-
-            <div>
-              {userData.repos.map((item) => (
+            <div className="profile-repos-pagination">
+              {currentPageData.map((item) => (
                 <RepoCard
                   key={item.name}
                   username={item.owner.login}
@@ -114,6 +128,20 @@ const Profile = () => {
                 />
               ))}
             </div>
+            <ReactPaginate
+              nextLabel=">"
+              breakLabel={'...'}
+              onPageChange={handlePageChange}
+              pageRangeDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+              containerClassName="pagination"
+              pageLinkClassName="page-num"
+              previousLinkClassName="page-num"
+              nextLinkClassName="page-num"
+              activeLinkClassName="active"
+            />
           </div>
           <span className="profile-calendar-heading">
           </span>

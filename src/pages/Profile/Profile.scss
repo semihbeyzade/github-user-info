@@ -1,130 +1,148 @@
 .profile-container {
-    --horizontalPadding: 16px;
-    --verticalPadding: 24px;
-    overflow: hidden;
-    padding: var(--verticalPadding) var(--horizontalPadding);
-  
-    .profile-main {
+  --horizontalPadding: 16px;
+  --verticalPadding: 24px;
+  overflow: hidden;
+  padding: var(--verticalPadding) var(--horizontalPadding);
+
+  .profile-main {
       display: flex;
       flex-direction: column;
       margin: 0 auto;
       max-width: 1200px;
-  
+
       @media (min-width: 768px) {
-        flex-direction: row;
+          flex-direction: row;
       }
-  
+
       .profile-left-side,
       .profile-right-side {
-        padding: 0 var(--horizontalPadding);
-        width: 100%; // Öncelikle her iki tarafın genişliğini eşit olarak ayarlayın
-  
-        @media (min-width: 768px) {
-          width: 25%; // Sadece büyük ekranlarda genişlik ayarını değiştirin
-        }
+          padding: 0 var(--horizontalPadding);
+          width: 100%;
+
+          @media (min-width: 768px) {
+              width: 25%;
+          }
       }
-  
+
       .profile-right-side {
-        @media (min-width: 768px) {
-          width: 75%; // Sadece büyük ekranlarda genişlik ayarını değiştirin
-        }
+          @media (min-width: 768px) {
+              width: 75%;
+          }
       }
-    }
-  
-    .profile-desktop {
+  }
+
+  .profile-desktop {
       display: none;
-  
+
       @media (min-width: 768px) {
-        display: unset;
-        .profile-wrapper {
-          display: flex;
-          margin: 0 auto;
-          max-width: 1200px;
-        }
-  
-        .profile-offset {
-          width: 25%;
-          margin-right: var(--horizontalPadding);
-        }
+          display: unset;
+          .profile-wrapper {
+              display: flex;
+              margin: 0 auto;
+              max-width: 1200px;
+          }
+
+          .profile-offset {
+              width: 25%;
+              margin-right: var(--horizontalPadding);
+          }
       }
-    }
-  
-    .profile-line {
+  }
+
+  .profile-line {
       display: flex;
       width: 200vw;
       border-bottom: 1px solid var(--border);
       margin-left: -50vw;
-    }
-  
-    .profile-mobile {
+  }
+
+  .profile-mobile {
       margin-top: var(--verticalPadding);
-  
+
       .profile-content {
-        margin: 0 auto;
+          margin: 0 auto;
       }
-  
+
       @media (min-width: 768px) {
-        display: none;
+          display: none;
       }
-    }
-  
-    .profile-repos {
+  }
+
+  .profile-repos {
       margin-top: var(--verticalPadding);
-  
+
       h2 {
-        font-size: 16px;
-        font-weight: normal;
+          font-size: 16px;
+          font-weight: normal;
       }
-  
+
       > div {
-        margin-top: 8px;
-        display: grid;
-        grid-gap: 16px;
-        grid-template-columns: 1fr;
-  
-        @media (min-width: 768px) {
-          grid-template-columns: 1fr 1fr;
-          grid-auto-rows: minmax(min-content, max-content);
-        }
+          margin-top: 8px;
+          display: grid;
+          grid-gap: 16px;
+          grid-template-columns: 1fr;
+
+          @media (min-width: 768px) {
+              grid-template-columns: 1fr 1fr;
+              grid-auto-rows: minmax(min-content, max-content);
+          }
       }
-    }
-  
-    .profile-calendar-heading {
+
+      .pagination {
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 1rem;
+          font-size: 1rem;
+          gap: 2px;
+      }
+
+      .pagination .page-num {
+          padding: 8px;
+          cursor: pointer;
+          border-radius: 3px;
+          font-weight: 400;
+          color: var(--link);
+      }
+  }
+
+  .profile-calendar-heading {
       font-size: 16px;
       margin: 36px 0 9px;
       display: inline-flex;
-    }
-  
-    .profile-tab {
+  }
+
+  .profile-tab {
       background: var(--primary);
-    }
-  
-    .profile-content {
+  }
+
+  .profile-content {
       display: flex;
       align-items: center;
       padding: 14px 16px;
       border-bottom: 2px solid var(--orange);
-  
+
       .profile-label {
-        font-size: 14px;
-        padding: 0 7px;
-        font-weight: 600;
+          font-size: 14px;
+          padding: 0 7px;
+          font-weight: 600;
       }
-  
+
       .profile-number {
-        font-size: 12px;
-        background: var(--ticker);
-        padding: 2px 6px;
-        border-radius: 24px;
+          font-size: 12px;
+          background: var(--ticker);
+          padding: 2px 6px;
+          border-radius: 24px;
       }
-    }
-  
-    .profile-repo-icon {
+  }
+
+  .profile-repo-icon {
       width: 16px;
       height: 16px;
       margin-right: 4px;
-    }
   }
+}
 
 
 
