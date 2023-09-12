@@ -9,7 +9,7 @@ import "./Profile.scss";
 
 const Profile = () => {
   // Use the username from the route parameters
-  const { username } = useParams();
+  const { username = "semihbeyzade" } = useParams();
 
   const [userData, setUserData] = useState({
     user: null,
