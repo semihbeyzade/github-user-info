@@ -3,7 +3,6 @@ import Header from './components/Header/Header';
 import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import Repo from "./pages/Repo/Repo";
-import "react-calendar-heatmap/dist/styles.css";
 
 function App() {
   return (

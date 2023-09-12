@@ -4,7 +4,6 @@ import axios from "axios";
 import ReactPaginate from 'react-paginate';
 import ProfileData from "../../components/ProfileData/ProfileData";
 import RepoCard from "../../components/RepoCard/RepoCard";
-import RandomCalendar from "../../components/RandomCalendar/RandomCalendar";
 import { RiBookMarkLine } from "react-icons/ri";
 import "./Profile.scss";
 
@@ -13,13 +12,13 @@ const Profile = () => {
   const { username = "semihbeyzade" } = useParams();
 
   // State to hold user data, repositories, and error
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({}); 
 
   // State to manage the current page for pagination
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 8; // Number of repositories to display per page
 
-  useEffect(() => {
+   useEffect(() => {
     // Fetch user data and repositories when the component mounts
     const fetchUserData = async () => {
       try {
@@ -51,7 +50,7 @@ const Profile = () => {
 
     fetchUserData();
   }, [username]);
-
+ 
   // Render an error message if there's an error
   if (userData.error) {
     return <h1>{userData.error}</h1>;
@@ -145,7 +144,6 @@ const Profile = () => {
           </div>
           <span className="profile-calendar-heading">
           </span>
-          <RandomCalendar />
         </div>
       </div>
     </div>
